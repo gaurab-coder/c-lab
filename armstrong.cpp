@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<conio.h>
-main()
+ int main()
 {
-  printf("gaurab khadka, Roll no:13");
+  printf("Name:Gaurab Khadka Roll No:13\n");
 int n,num,r,arm=0;
 printf("Enter the number");
 scanf("%d", &n);
