@@ -1,0 +1,16 @@
+//factorial of a positive no
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    long fact = 1;
+
+    printf("Enter a non-negative integer: ");
+    scanf("%d", &n);
+        for (i = 1; i <= n; ++i) 
+            fact *= i;
+        
+        printf("\n the factorial is: %ld",fact);
+
+    return 0;
+}
