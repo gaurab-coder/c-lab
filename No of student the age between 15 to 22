@@ -1,0 +1,21 @@
+// program to count the number of students of the age between 15 to 22
+#include<stdio.h>
+main()
+{
+clrscr();
+int a[100],i,n,c=0;
+printf("How many number:");
+scanf("%d",&n);
+for(i=0;i<n;i++)
+{
+printf("Enter the age:\n");
+scanf("%d",&age[i]);
+if(age[i]>15 && age[i]<22)
+{
+c=c+1;
+}
+}
+printf("The number of students =%d",c);
+getch();
+
+}
