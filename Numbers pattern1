@@ -1,0 +1,21 @@
+//program to print patterns of number
+#include <stdio.h>
+
+int main() {
+    int i, j;
+    for (i = 1; i <= 5; i++)
+    { // Outer loop for rows
+        for (j = 1; j <= i; j++)// Inner loop for columns in each row
+          { 
+            if (j % 2 != 0)// If column number is odd, print 1
+             { 
+                printf("1");
+            } else 
+{ // If column number is even, print 0
+                printf("0");
+            }
+        }
+        printf("\n"); // Move to the next line after each row
+    }
+    return 0;
+}
