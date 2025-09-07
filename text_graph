@@ -1,0 +1,27 @@
+#include <graphics.h>
+#include <conio.h>  // Required for getch()
+#include <stdio.h>  // Optional for printf, if needed
+
+int main() {
+    int gd = DETECT, gm;
+
+    // Initialize graphics mode
+    initgraph(&gd, &gm, "");  // You can specify the correct BGI path if needed
+
+    // Set drawing color to red
+    setcolor(RED);  // Use RED constant for correct usage :contentReference[oaicite:0]{index=0}
+
+    // Draw circle with center at (200, 100) and radius 50
+    circle(200, 100, 50);  // :contentReference[oaicite:1]{index=1}
+
+    // Optionally, set text style (font, direction, size)
+    settextstyle(DEFAULT_FONT, HORIZ_DIR, 1);
+
+    outtextxy(150, 160, "Circle: center (200,100), radius 50");  // :contentReference[oaicite:2]{index=2}
+    outtext("fig: Circle having radius 50 and center at point center(500,200)");
+
+    getch();         // Pause to view graphic output
+    closegraph();    // Exit graphics mode
+    return 0;
+}
+
