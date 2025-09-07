@@ -1,0 +1,25 @@
+// program to print name in the center or the rectangle.
+#include <graphics.h>
+#include <conio.h>
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\Turboc3\\BGI");
+
+    // Rectangle coordinates
+    int left = 100, top = 100, right = 400, bottom = 200;
+
+    // Draw rectangle
+    rectangle(left, top, right, bottom);
+
+    // Rough center calculation without string functions
+    int center_x = (left + right) / 2 - 20;  // Adjusted manually
+    int center_y = (top + bottom) / 2;
+
+    // Display text
+    outtextxy(center_x, center_y, "gaurab");
+
+    getch();
+    closegraph();
+    return 0;
+}
