@@ -1,0 +1,32 @@
+#include <graphics.h>
+#include <conio.h>  // for getch()
+
+int main() {
+    int gd = DETECT, gm;
+
+    // Define the hexagon's vertices:
+    // Six points + repeat of the first to close the shape (7 points total)
+    int hexagon[14] = {
+        200, 100,  // Point 1
+        250, 150,  // Point 2
+        250, 220,  // Point 3
+        200, 270,  // Point 4
+        150, 220,  // Point 5
+        150, 150,  // Point 6
+        200, 100   // Closing point = Point 1 again
+    };
+
+    // Initialize graphics mode (adjust path if needed)
+    initgraph(&gd, &gm, "C:\\TC\\BGI");
+
+    // Draw outline of the hexagon
+    drawpoly(7, hexagon);
+
+    // Optionally fill the shape
+    // fillpoly(7, hexagon);
+
+    getch();
+    closegraph();
+    return 0;
+}
+
