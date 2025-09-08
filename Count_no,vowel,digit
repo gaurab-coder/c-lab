@@ -1,0 +1,64 @@
+// Program to count the numbers of vowels, consonants, digits, and lines in a file and display the content on screen.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fp;
+    char ch;
+    int v = 0, c = 0, sp = 0, dig = 0, nl = 0;
+
+    // Open the file "myfile.txt" in read mode ("r").
+    // Note: The file must exist for the program to run correctly.
+    fp = fopen("myfile.txt", "r");
+
+    // Check if the file was opened successfully.
+    if (fp == NULL) {
+        printf("cannot open for reading\n");
+        // Use exit(1) to terminate the program with an error status.
+        // It's a good practice to include a return statement as well.
+        exit(1);
+    }
+    
+    // Read the file character by character until the end of the file (EOF) is reached.
+    while ((ch = getc(fp)) != EOF) {
+        // Count newlines.
+        if (ch == '\n') {
+            nl++;
+        }
+        // Count vowels (both uppercase and lowercase).
+        else if (ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch == 'o' || ch == 'O' || ch == 'u' || ch == 'U') {
+            v++;
+        }
+        // Count spaces.
+        else if (ch == ' ') {
+            sp++;
+        }
+        // Count digits.
+        else if (ch >= '0' && ch <= '9') {
+            dig++;
+        }
+        // All other characters are considered consonants.
+        else {
+            c++;
+        }
+    }
+    
+    // Print the character counts.
+    printf("\nThere are:\n%d vowels,\n%d Consonants,\n%d digits,\n%d spaces\nand %d lines\n", v, c, dig, sp, nl + 1);
+    
+    // Reset file pointer to the beginning of the file.
+    rewind(fp);
+    
+    printf("\nThe content of the file .... \n");
+    
+    // Read the file again to print its contents to the console.
+    while ((ch = getc(fp)) != EOF) {
+        // Use putc(ch, stdout) or putchar(ch) to print the character to the console.
+        putchar(ch);
+    }
+
+    // Close the file.
+    fclose(fp);
+    
+    return 0;
+}
