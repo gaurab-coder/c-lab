@@ -1,0 +1,38 @@
+// Program that demonstrates the reading of the records of employee from file employee.dat file using fread() function.
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define a structure for an employee.
+struct employee {
+    char name[40];
+    int age;
+    float salary;
+};
+
+int main() {
+    struct employee emp;
+    FILE *fp;
+    
+    // Open the file "employee.dat" in read binary mode ("rb").
+    fp = fopen("employee.dat", "rb");
+
+    // Check if the file was opened successfully.
+    if (fp == NULL) {
+        printf("cannot open file\n");
+        exit(1);
+    }
+    
+    // Read the records from the file one by one until the end of the file.
+    printf("The records in the file employee are.......\n");
+    // fread returns the number of items successfully read.
+    // The loop continues as long as a full employee record is read.
+    while (fread(&emp, sizeof(emp), 1, fp) == 1) {
+        // Print the employee's details.
+        printf("name: %s, age: %d, salary: %.2f\n", emp.name, emp.age, emp.salary);
+    }
+    
+    // Close the file.
+    fclose(fp);
+    
+    return 0;
+}
