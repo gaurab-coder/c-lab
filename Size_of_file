@@ -1,0 +1,30 @@
+// Program to find the size of a given file student.txt.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    long int size;
+    FILE *fp;
+
+    // Open the file "student.txt" in read binary mode ("rb").
+    fp = fopen("student.txt", "rb");
+
+    // Check if the file was opened successfully.
+    if (fp == NULL) {
+        printf("\n Error opening a file!!\n");
+        exit(1);
+    }
+    
+  
+    fseek(fp, 0, SEEK_END); /* Go to the end of file */
+    
+    size = ftell(fp);
+    
+    // Print the size of the file.
+    printf("Size of the file student.txt = %ld bytes\n", size);
+    
+    // Close the file.
+    fclose(fp);
+    
+    return 0;
+}
