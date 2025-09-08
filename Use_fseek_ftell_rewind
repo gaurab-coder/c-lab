@@ -1,0 +1,37 @@
+// Program to illustrate the uses of fseek, ftell, and rewind in random access file.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fp;
+
+    // Open the file "student.txt" in read binary mode ("rb").
+    fp = fopen("student.txt", "rb");
+
+    // Check if the file was opened successfully.
+    if (fp == NULL) {
+        printf("\n Error opening a file!!\n");
+        // Use exit(1) to terminate the program with an error status.
+        exit(1);
+    }
+    
+    // Print the initial position of the file pointer.
+    printf("\n Position Pointer = %ld \n", ftell(fp));
+    
+    // Use fseek to move the file pointer 2 bytes from the beginning of the file.
+    fseek(fp, 2, 0); 
+    
+    // Print the new position of the file pointer.
+    printf("\n Position Pointer = %ld \n", ftell(fp));
+    
+    // Use rewind to reset the file pointer to the beginning of the file.
+    rewind(fp);
+    
+    // Print the position after using rewind.
+    printf("\n Position Pointer = %ld \n", ftell(fp));
+    
+    // Close the file.
+    fclose(fp);
+    
+    return 0;
+}
